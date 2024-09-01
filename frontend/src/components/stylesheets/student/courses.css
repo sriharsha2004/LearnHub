@@ -1,0 +1,78 @@
+/* StudentHome.css */
+
+.student-home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.course-details {
+    padding: 20px;
+}
+
+.course-details h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.course-details p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.course-details button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.course-details #viewer{
+    float: right;
+}
+
+.course-details button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #f00;
+}
+
+.pending-message {
+    color: #007bff;
+}
+
+#cost{
+    text-decoration:line-through;
+}
+#course-head{
+    border-bottom: 2px solid #007bff;
+}

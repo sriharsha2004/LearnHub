@@ -1,0 +1,111 @@
+/* General Styles for StudentHome Component */
+.student-home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    color: #1e272e;
+    margin: 0;
+}
+
+/* Quick Access Buttons */
+.quick-access {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.quick-access button {
+    background-color: #00aaff;
+    color: white;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.15em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quick-access button:hover {
+    background-color: #007bb5;
+    transform: translateY(-2px);
+}
+
+/* What You Can Do Section */
+.what-you-can-do {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.what-you-can-do h2 {
+    font-size: 2.2em;
+    color: #1e272e;
+    margin-bottom: 25px;
+}
+
+/* Individual Points in What You Can Do Section */
+.what-you-can-do h3 {
+    font-size: 1.4em;
+    color: #2d3436;
+    margin-top: 30px; /* Increased space above each heading */
+    margin-bottom: 10px; /* Space below each heading */
+}
+
+.what-you-can-do p {
+    font-size: 1.15em;
+    line-height: 1.7;
+    margin-bottom: 30px; /* Increased space below each paragraph */
+    color: #636e72;
+}
+
+/* Support Section */
+.support {
+    text-align: center;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.support h2 {
+    font-size: 2.2em;
+    color: #1e272e;
+    margin-bottom: 20px;
+}
+
+.support p {
+    font-size: 1.2em;
+    color: #636e72;
+    margin-bottom: 25px;
+}
+
+.support button {
+    background-color: #e63946;
+    color: white;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.15em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.support button:hover {
+    background-color: #d62839;
+    transform: translateY(-2px);
+}

@@ -1,0 +1,128 @@
+/* Modulesviewer.css
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .accordion {
+    margin-bottom: 15px;
+  }
+  
+  .accordion-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+  }
+  
+  .accordion-header {
+    margin: 0;
+  }
+  
+  .accordion-button {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+  }
+  
+  .accordion-body {
+    padding: 15px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  .btn-primary {
+    margin: 10px 0;
+    background-color: #007bff;
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .no-modules {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    padding: 20px 0;
+  }
+   */
+
+  /* Modulesviewer.css */
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .accordion {
+    margin-bottom: 15px;
+  }
+  
+  .accordion-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+  
+  .accordion-header {
+    margin: 0;
+  }
+  
+  .accordion-button {
+    background-color: #4a5568;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .accordion-body {
+    padding: 15px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .btn-primary {
+    margin: 10px 0;
+    background-color: #3182ce;
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2b6cb0;
+  }
+  
+  .no-modules {
+    text-align: center;
+    font-size: 18px;
+    color: #6c757d;
+    padding: 20px 0;
+  }
+  
+  

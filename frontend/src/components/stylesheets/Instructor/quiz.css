@@ -1,0 +1,258 @@
+/* Overall container for the quiz builder */
+.quiz-builder-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Added questions section */
+  .quiz-added-questions {
+    margin-bottom: 20px;
+  }
+  
+  .quiz-question-card {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+  }
+  
+  .quiz-question-card button {
+    margin-top: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Question block styling */
+  .question-block {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  /* Question input field styling */
+  .question-input {
+    margin-bottom: 15px;
+  }
+  
+  .question-input label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .question-input input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  /* Options block styling */
+  .options-block {
+    margin-top: 10px;
+  }
+  
+  .option-item {
+    margin-bottom: 10px;
+  }
+  
+  .option-item input {
+    margin-right: 10px;
+  }
+  
+  /* Add option block */
+  .add-option-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .add-option-block input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .add-option-block button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Error message for unchecked answers */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  /* Add question button */
+  .add-question-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #343a40;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    /* border-bottom: 2px solid #007bff; */
+    padding-bottom: 10px;
+  }
+  #quiz-heading{
+    border-bottom: 2px solid #007bff;
+  }
+  /* Styling for h3 tags */
+  h3 {
+    font-size: 20px;
+    color: #495057;
+    margin-bottom: 15px;
+    font-weight: 500;
+    padding-left: 10px;
+  }
+
+  .quiz-question-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-question-card div {
+    margin-bottom: 10px;
+  }
+  
+  .quiz-question-card strong {
+    color: #333;
+  }
+  
+  .quiz-option {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    border: 1px solid #ddd;
+  }
+  
+  .quiz-option:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Container for the quiz score section */
+/* quiz.css */
+.quiz-score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-score-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #007bff; /* Primary color */
+}
+
+.quiz-score-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.quiz-score-container .score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quiz-score-container .score-container .percentage {
+  font-size: 1.5rem;
+  color: #28a745; /* Green for high scores */
+  margin: 10px 0;
+}
+
+.quiz-score-container .score-container .total-questions {
+  font-size: 1rem;
+  color: #6c757d; /* Grey color for less emphasis */
+}
+
+.quiz-score-container .result-message {
+  font-size: 1rem;
+  color: #dc3545; /* Red for lower scores */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.quiz-score-container .high-score {
+  color: #28a745; /* Green for great scores */
+}
+
+.quiz-score-container .low-score {
+  color: #dc3545; /* Red for low scores */
+}
+
+
+/* CSS for Horizontal Rotating Badge */
+.horizontal-rotating-batch {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: #FFD700; 
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #170101; /* White text */
+  position: relative;
+  animation: horizontal-rotate 3s infinite linear;
+  border: 1px solid black;
+}
+
+@keyframes horizontal-rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Optional: Class for hiding the badge */
+.hidden {
+  display: none;
+}
