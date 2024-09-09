@@ -17,7 +17,7 @@ const Courses = () => {
     const [getrequest,data,ispending,error] = useFetchGet();
 
     useEffect(()=>{
-        getrequest("http://localhost:8081/courses/getinstructorcourses")
+        getrequest(`${process.env.REACT_APP_BACKEND_URL}/courses/getinstructorcourses`)
     },[deleted])
 
 
@@ -26,7 +26,7 @@ const Courses = () => {
     };
 
     const deletecourse = (id) => {
-        axios.delete(`http://localhost:8081/courses/delete/${id}`).then((res)=>{
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/courses/delete/${id}`).then((res)=>{
             setdeleted(true);
             if(res.data === "Failed") toast.error("Failed to delete course")
             else toast.success("Course Deleted Successfully");
@@ -47,7 +47,7 @@ const Courses = () => {
                 {data!==null && data.map(course => (
                     <div key={course._id} className="course-item">
                         <div className="course-image">
-                            <img src={`http://localhost:8081/files/${course.courseimage}`} alt="Project Image" />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/files/${course.courseimage}`} alt="Project Image" />
                         </div>
                         <div className="course-details">
                             <h2 id='course-head'><strong>Course Name :</strong> {course.title}</h2>
@@ -69,7 +69,7 @@ const Courses = () => {
                                     <div className="row">
                                         <div className="col-md-6">
                                             <div className="modal-image">
-                                                <img src={`http://localhost:8081/files/${course.courseimage}`} alt="Project Image" className="img-fluid" />
+                                                <img src={`${process.env.REACT_APP_BACKEND_URL}/files/${course.courseimage}`} alt="Project Image" className="img-fluid" />
                                             </div>
                                         </div>
                                         <div className="col-md-6">

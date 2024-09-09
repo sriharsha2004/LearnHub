@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
+import axios from "axios";
 
 import Navbar from './navbar';
 import useImageUploader from '../../hooks/useImageUploader';
@@ -15,6 +16,8 @@ const Modulesviewer = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [Pdf, setPdf] = useState(null);
+    const [deleted,setdeleted] = useState(false);
+    const [added,setadded] = useState(false);
 
     const [selectedProject, setselectedProject] = useState(null);
 
@@ -27,14 +30,14 @@ const Modulesviewer = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        getrequest(`http://localhost:8081/courses/modules/${id}`)
-    }, [])
+        getrequest(`${process.env.REACT_APP_BACKEND_URL}/courses/modules/${id}`)
+    }, [deleted,added])
 
     var StorePdf = (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('file', Pdf);
-        postPdf("http://localhost:8081/upload", formData);
+        postPdf(`${process.env.REACT_APP_BACKEND_URL}/upload`, formData);
         setPdf(Pdfurl)
     }
 
@@ -50,9 +53,21 @@ const Modulesviewer = () => {
     const Addmodule = (e) => {
         e.preventDefault();
         const formdata = { title: title, description : description , pdf: Pdfurl }
-        postrequest(`http://localhost:8081/courses/addmodule/${id}`, formdata)
+        postrequest(`${process.env.REACT_APP_BACKEND_URL}/courses/addmodule/${id}`, formdata)
         navigate("/mycourses");
+        setadded(true);
         toast.success("Module Added Successfully");
+    }
+    
+    const deletemodule = (id) => {
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/courses/deletemodule/${id}`).then((res)=>{
+            setdeleted(true);
+            if(res.data === "Failed") toast.error("Failed to delete module , Try Again")
+            else toast.success("Module Deleted Successfully");
+        })
+        .catch((err)=>{
+            console.log(err);            
+        })
     }
 
 
@@ -74,9 +89,10 @@ const Modulesviewer = () => {
                                 <div class="accordion-body">
                                     <strong>Description : </strong> {module.description}
                                 </div>
-                                <button class="btn btn-primary" onClick={() => window.open(`http://localhost:8081/files/${module.pdf}`, "_blank", "noreferrer")}>View Content</button>
+                                <button class="btn btn-primary" onClick={() => window.open(`${process.env.REACT_APP_BACKEND_URL}/files/${module.pdf}`, "_blank", "noreferrer")}>View Content</button>
                                 &nbsp;&nbsp;<button class="btn btn-primary" onClick={() => navigate(`/addquiz/${module._id}`)}>Add Quiz</button>
                                 &nbsp;&nbsp;<button class="btn btn-primary" onClick={() => navigate(`/viewquiz/${module._id}`)}>View Quiz</button>
+                                &nbsp;&nbsp;<button class="btn btn-danger" onClick={() => deletemodule(module._id) }>Delete Module</button>
                             </div>
                         </div>
                     </div>
@@ -112,7 +128,7 @@ const Modulesviewer = () => {
                                     </div>
                                     {Pdfurl != null && <button onClick={(e) => {
                                         e.preventDefault();
-                                        window.open(`http://localhost:8081/files/${Pdfurl}`, "_blank", "noreferrer");
+                                        window.open(`${process.env.REACT_APP_BACKEND_URL}/files/${Pdfurl}`, "_blank", "noreferrer");
                                     }} id='imageuploadbtn' >Preview</button>}
                                     {Pdfurl != null && <span>&nbsp;&nbsp;content uploaded Successfully</span>}
                                     <button type="submit" data-bs-dismiss="modal" >Create Module</button>

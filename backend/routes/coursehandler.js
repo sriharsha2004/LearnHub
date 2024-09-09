@@ -12,5 +12,6 @@ router.post("/addmodule/:id", verifyToken , controller.newmodule);
 router.get("/getenrolledcourses", verifyToken , controller.getenrolledcourses);
 router.get("/enroll/:id", verifyToken , controller.enrollforcourse)
 router.delete("/delete/:id",verifyToken,controller.deletecourse);
+router.delete("/deletemodule/:id",verifyToken,controller.deletemodule);
 
 module.exports = router;

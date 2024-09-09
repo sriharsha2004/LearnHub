@@ -124,6 +124,20 @@ const deletecourse = (req,res) => {
     // res.json(courseId);
 }
 
+const deletemodule = (req,res) => {
+    console.log(req.params.id);
+    
+    modulemodel.findByIdAndDelete(req.params.id).then((data)=>{
+        if(data.length != 0) 
+            res.json(data);
+        else 
+            res.json("Failed");
+    })
+    .catch((err)=>{
+        res.json("Failed");
+    })
+}
+
 
 module.exports = {
     getallcourses,
@@ -133,5 +147,6 @@ module.exports = {
     getinstructorcourses,
     getenrolledcourses,
     enrollforcourse,
-    deletecourse
+    deletecourse,
+    deletemodule
 }

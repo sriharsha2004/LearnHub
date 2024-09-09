@@ -23,14 +23,14 @@ const Newcourse = () => {
     const newcourse = { title : title
         ,courseimage : image, price : price , description : description}
 
-       postrequest("http://localhost:8081/courses/new",newcourse);
+       postrequest(`${process.env.REACT_APP_BACKEND_URL}/courses/new`,newcourse);
   };
 
   const StoreImage = (e) =>{
     e.preventDefault();
     const formData = new FormData();
     formData.append('image', image);
-    postImage("http://localhost:8081/imageupload" , formData);
+    postImage(`${process.env.REACT_APP_BACKEND_URL}/imageupload` , formData);
     setImage(imgurl)
     // console.log(imgurl);
   }

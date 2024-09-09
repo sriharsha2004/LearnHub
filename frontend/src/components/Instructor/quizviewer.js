@@ -17,7 +17,7 @@ const QuizViewer = () => {
   SetAuthToken(localStorage.getItem("token"));
 
   useEffect(() => {
-    axios.get("http://localhost:8081/quiz/all" , { params : { moduleId : id} })
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/quiz/all` , { params : { moduleId : id} })
       .then(res => { 
         console.log(res.data);
         

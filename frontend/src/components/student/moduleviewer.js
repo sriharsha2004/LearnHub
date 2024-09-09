@@ -16,7 +16,7 @@ const Moduleviewer = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        getrequest(`http://localhost:8081/courses/modules/${id}`)
+        getrequest(`${process.env.REACT_APP_BACKEND_URL}/courses/modules/${id}`)
     }, [])
 
     return (
@@ -36,7 +36,7 @@ const Moduleviewer = () => {
                                 <div class="accordion-body">
                                     <strong>Description : </strong> {module.description}
                                 </div>
-                                <button class="btn btn-primary" onClick={() => window.open(`http://localhost:8081/files/${module.pdf}`, "_blank", "noreferrer")}>View Content</button>
+                                <button class="btn btn-primary" onClick={() => window.open(`${process.env.REACT_APP_BACKEND_URL}/files/${module.pdf}`, "_blank", "noreferrer")}>View Content</button>
                                 &nbsp;&nbsp;<button class="btn btn-primary" onClick={()=>navigate(`/Attemptquiz/${module._id}`)}>Attempt Quiz</button>
                             </div>
                         </div>

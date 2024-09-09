@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {  FaEye , FaEyeSlash } from "react-icons/fa";
 
 import Navbar from './navbar';
 import useFetchpost from '../hooks/useFetchPost';
@@ -8,6 +9,7 @@ const Login = () => {
   const [rollno, setRollno] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("Student");
+  const [showpwd,setshowpwd] = useState(false);
 
   const [postrequest,data,isPending,error] = useFetchpost();
 
@@ -15,7 +17,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formdata = {rollno,password,role}
-    postrequest("http://localhost:8081/validate/login",formdata)
+    postrequest(`${process.env.REACT_APP_BACKEND_URL}/validate/login`,formdata)
 
   };
 
@@ -30,9 +32,12 @@ const Login = () => {
         <input  type="text"  id="rollno"  name="rollno"  value={rollno}
             onChange={(e) => setRollno(e.target.value)} required />
 
-        <label htmlFor="password">Password</label>
-        <input type="password"  id="password" name="password"  value={password}
-            onChange={(e) => setPassword(e.target.value)}  required />
+          <label htmlFor="password">Password</label>
+            <div id='eyesection'>
+              <input  type={showpwd ? "text": "password"}   id="password" name="password"  value={password}
+                  onChange={(e) => setPassword(e.target.value)}  required />
+              <span onClick={()=>setshowpwd(!showpwd)} id='showpwd'>{showpwd ? <FaEye/> : <FaEyeSlash/>}</span>
+            </div>
 
         <label htmlFor="role">Role</label>
         <select id="role" name="role"  value={role} onChange={(e) => setRole(e.target.value)}  >

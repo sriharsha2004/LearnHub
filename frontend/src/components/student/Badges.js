@@ -9,7 +9,7 @@ const Badges = () => {
     const [getrequest,data,ispending,error] = useFetchGet();
 
     useEffect(()=>{
-        getrequest("http://localhost:8081/badge/all")
+        getrequest(`${process.env.REACT_APP_BACKEND_URL}/badge/all`)
         console.log(data);
     },[])
 
@@ -32,6 +32,7 @@ const Badges = () => {
                     </div>
                 ))}
             </div>
+            {data === null && !ispending && !error && <div className="status-message">No Badges Earned</div>}
         </div>
     );
 }

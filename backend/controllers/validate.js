@@ -1,21 +1,37 @@
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const usermodel = require("../modals/userSchema")
 const EmployeeIdmodel = require("../modals/EmployeeIdSchema")
 
 const login = (req,res) => {
 
-    usermodel.find(req.body).then((data) => {
+    usermodel.find({rollno : req.body.rollno}).then((data) => {
         if(data.length == 0)  res.status(200).json("Invalid User");
         else{
-            const token = jwt.sign({ id : req.body.rollno , role : req.body.role} , process.env.JWT_SECRET , { expiresIn: '3d' });
-            res.json({"token" : token , data : "Succesfully"})
-            // res.json(data[0]);
+            bcrypt.compare(req.body.password, data[0].password, (err, isvalid) => {
+                if (err) {
+                    console.log(err);
+                    res.json("Internal Server Error");
+                } else {
+                    if (isvalid){
+                        const token = jwt.sign({ id : req.body.rollno , role : req.body.role} , process.env.JWT_SECRET , { expiresIn: '3d' });
+                        res.json({"token" : token , data : data[0]})
+                    }
+                    else res.json("Invalid User");
+                }
+            });
         }
     })
 }
 
 const register = async (req,res) => {
+
+    bcrypt.hash(req.body.password, Number(process.env.SALT_ROUNDS)).then((encryptedpassword) => {
+        req.body.password = encryptedpassword;
+        console.log(encryptedpassword);
+    })
+    
     // console.log(req.body);
     const rollno = req.body.rollno;
     const password = req.body.password;

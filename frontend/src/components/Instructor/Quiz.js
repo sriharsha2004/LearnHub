@@ -21,7 +21,7 @@ const QuizBuilder = () => {
   SetAuthToken(localStorage.getItem("token"));
 
   useEffect(() => {
-    axios.get("http://localhost:8081/quiz/all" , { params : { moduleId : id} })
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/quiz/all` , { params : { moduleId : id} })
       .then(res => { 
         console.log(res.data);
         
@@ -37,7 +37,7 @@ const QuizBuilder = () => {
   const updatequestions = () => {
     // console.log(questions);
     const data = {moduleId : id , questions : questions}
-    axios.post("http://localhost:8081/quiz/add",data)
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/quiz/add`,data)
     .then(res => {
         setQuestions([
           { question: '', options: [], correctAnswer: '' },
@@ -86,7 +86,7 @@ const QuizBuilder = () => {
     const data = {moduleId : id , questionId : question._id}
     let a = window.confirm(`Do you want to delete the question: "${question.question}"?`);
     if(a){
-      axios.delete("http://localhost:8081/quiz/removequestion" , {data : data} ).then((d) => {
+      axios.delete(`${process.env.REACT_APP_BACKEND_URL}/quiz/removequestion` , {data : data} ).then((d) => {
         setQuestions([
           { question: '', options: [], correctAnswer: '' },
         ])

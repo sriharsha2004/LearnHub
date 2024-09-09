@@ -22,7 +22,7 @@ const AttemptQuiz = () => {
   SetAuthToken(localStorage.getItem("token"));
 
   useEffect(() => {
-    axios.get("http://localhost:8081/quiz/all" , { params : { moduleId : id} })
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/quiz/all` , { params : { moduleId : id} })
       .then(res => { 
         console.log(res.data);
         
@@ -45,7 +45,7 @@ const AttemptQuiz = () => {
 
     const postanswers = () => {
         const stans = {moduleId : id , Studentanswers : answers}
-        axios.post("http://localhost:8081/quiz/getscore",stans).then((res)=>{
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/quiz/getscore`,stans).then((res)=>{
           setpercentage(((res.data)/(data.length))*100)
           setscore(res.data);
           setsubmitted(true);
@@ -58,7 +58,7 @@ const AttemptQuiz = () => {
 
     const storeBatch = () => {
       const data = {moduleId : id};
-      axios.post("http://localhost:8081/badge/storeBadge",data).then((res)=>{
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}/badge/storeBadge`,data).then((res)=>{
         console.log(res.data);
       })
       .catch((err)=>{
@@ -118,7 +118,7 @@ const AttemptQuiz = () => {
               ))}
          </div>
         ))}
-        <button className='btn btn-primary' onClick={postanswers}>Submit Quiz</button>
+        {data!==null && <button className='btn btn-primary' onClick={postanswers}>Submit Quiz</button>}
         </div>
         </>
   )}

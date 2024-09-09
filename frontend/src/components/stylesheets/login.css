@@ -90,3 +90,22 @@
     }
   }
   
+  .login-container.error-message {
+    color: #ff0000;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .login-container .pending-message {
+    color: #007bff;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  #eyesection{
+    display: flex; 
+  }
+  #showpwd{
+    padding-top: 10px;
+    padding-left: 10px;
+  }

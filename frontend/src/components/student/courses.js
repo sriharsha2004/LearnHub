@@ -16,7 +16,7 @@ const Courses = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        getrequest("http://localhost:8081/courses/all")
+        getrequest(`${process.env.REACT_APP_BACKEND_URL}/courses/all`)
         console.log(data);
     }, [])
 
@@ -29,7 +29,7 @@ const Courses = () => {
     };
 
     const enrollcourse = (id) => {
-        getrequest(`http://localhost:8081/courses/enroll/${id}`)
+        getrequest(`${process.env.REACT_APP_BACKEND_URL}/courses/enroll/${id}`)
         navigate("/mycourses");
     }
 
@@ -43,7 +43,7 @@ const Courses = () => {
                         {data !== null && data.map(course => (
                             <div key={course._id} className="course-item">
                                 <div className="course-image">
-                                    <img src={`http://localhost:8081/files/${course.courseimage}`} alt="Project Image" />
+                                    <img src={`${process.env.REACT_APP_BACKEND_URL}/files/${course.courseimage}`} alt="Project Image" />
                                 </div>
                                 <div className="course-details">
                                     <h2><strong>Course Name :</strong> {course.title}</h2>
@@ -84,7 +84,7 @@ const Courses = () => {
                                                 <div className="row">
                                                     <div className="col-md-6">
                                                         <div className="modal-image">
-                                                            <img src={`http://localhost:8081/files/${course.courseimage}`} alt="Project Image" className="img-fluid" />
+                                                            <img src={`${process.env.REACT_APP_BACKEND_URL}/files/${course.courseimage}`} alt="Project Image" className="img-fluid" />
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6">
